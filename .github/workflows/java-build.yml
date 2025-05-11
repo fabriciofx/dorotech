@@ -62,11 +62,12 @@ jobs:
       - name: Build project in Unix/macOS
         if: runner.os != 'Windows'
         run: |
-          MVN=$(which mvn)
           if [[ -x "mvnw" ]]; then
             MVN="./mvnw"
+          else
+            MVN=mvn
           fi
-          qulice=$($MVN help:all-profiles | grep qulice)
+          qulice=$(grep "<id>qulice</id>" pom.xml)
           if [[ -n "$qulice" ]]; then
             $MVN --errors --batch-mode clean install -Pqulice
           else
