@@ -24,10 +24,10 @@ name: java-build
 'on':
   push:
     branches:
-      - main
+      - '*'
   pull_request:
     branches:
-      - main
+      - '*'
 jobs:
   java-build:
     runs-on: ${{ matrix.os }}
