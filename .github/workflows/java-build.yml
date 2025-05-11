@@ -69,6 +69,7 @@ jobs:
           fi
           echo "$MVN"
           qulice=$(grep "<id>qulice</id>" pom.xml)
+          echo "duh"
           if [ -n "$qulice" ]; then
             $MVN --errors --batch-mode clean install -Pqulice
           else
