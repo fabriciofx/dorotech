@@ -24,10 +24,10 @@ name: action-lint
 'on':
   push:
     branches:
-      - main
+      - '*'
   pull_request:
     branches:
-      - main
+      - '*'
 jobs:
   action-lint:
     runs-on: ubuntu-24.04
