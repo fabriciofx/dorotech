@@ -67,15 +67,11 @@ jobs:
           else
             MVN=mvn
           fi
-          echo "$MVN"
-          qulice=$(grep "<id>qulice</id>" pom.xml)
-          echo "duh"
-          if [ -n "$qulice" ]; then
+          if grep -q "<id>qulice</id>" pom.xml; then
             $MVN --errors --batch-mode clean install -Pqulice
           else
             $MVN --errors --batch-mode clean install
           fi
-          echo "here"
       - name: Build project in Windows
         if: runner.os == 'Windows'
         # yamllint disable rule:line-length
