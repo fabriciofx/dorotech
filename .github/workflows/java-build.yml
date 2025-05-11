@@ -62,7 +62,7 @@ jobs:
       - name: Build project in Unix/macOS
         if: runner.os != 'Windows'
         run: |
-          if [[ -x "mvnw" ]]; then
+          if [ -x "mvnw" ]; then
             MVN="./mvnw"
           else
             MVN=mvn
